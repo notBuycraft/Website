@@ -1,0 +1,17 @@
+{
+  "name": "NotBuycraft",
+  "version": "0.0.1",
+  "description": "A free self hosted alternative to Buycraft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shaun Agostinho",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2"
+  }
+}
