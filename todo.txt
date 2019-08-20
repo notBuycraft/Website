@@ -1,0 +1,32 @@
+idea:
+free alternative to buycraft, that is opensource
+
+how it works:
+- on first run, it will setup the mysql database with a default login (admin:admin) and such, it will also create the
+required tables and columns for the payments, etc, etc.
+- settings like database uri and website url are configured in a config file
+- it will use mysql for the database
+
+store look: https://github.com/RedDuckss/PHP-Vanilla-Buycraft
+
+admin dashboard:
+    statistics (monthly revenue, yearly, etc, all based on timestamps)
+    packages (use aws for images? or local storage?)
+    subscriptions
+    hook into paypal / crypto currency
+    two factor authentication
+    payment lookup
+    payment export to json based on date range
+    manual package thing
+    create multiple admin accounts
+    sales
+    categories
+    coupons
+    giftcards
+    banning, IP and username/uuid
+    multiple currency options
+
+
+backend:
+    rest api for plugin
+
