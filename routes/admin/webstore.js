@@ -9,6 +9,7 @@ router.get('/packages', function (req, res, next) {
         Package.find({}, function (err, packages) {
             return res.render("./admin/pages/packages", {
                 title: "Packages",
+                user: user,
                 packages: packages
             });
         });
@@ -21,6 +22,7 @@ router.get('/categories', function (req, res, next) {
         Category.find({}, function (err, categories) {
             return res.render("./admin/pages/categories", {
                 title: "Categories",
+                user: user,
                 packages: categories
             });
         });

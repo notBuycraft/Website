@@ -16,6 +16,7 @@ router.get('/view/:id', function (req, res, next) {
         Payment.find({}, function (err, payments) {
             return res.render("./admin/pages/payment_view", {
                 title: "View Payment",
+                user: user,
                 transaction_id: id
             });
         }).limit(20).skip(20 * (id - 1));
@@ -37,6 +38,7 @@ router.get('/:page', function (req, res, next) {
             return res.render("./admin/pages/payments", {
                 title: "Payments",
                 payments: payments,
+                user: user,
                 page: pager
             });
         }).limit(20).skip(20 * (pager - 1));
