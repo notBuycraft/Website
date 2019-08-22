@@ -20,6 +20,128 @@
     </div>
     <div class="container-fluid mt--7">
 
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header bg-white border-0">
+                        <% if(typeof error != 'undefined'){ %>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <span class="alert-inner--text"><strong>Error!</strong> <%= error.message %></span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <% } %>
+                        <% if(typeof success != 'undefined'){ %>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <span class="alert-inner--text"><strong>Success!</strong> <%= success.message %></span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <% } %>
+
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Packages</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="/admin/package/new" class="btn btn-sm btn-primary">New Package</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Enabled</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                            packages.forEach(function(package){ %>
+                                <tr>
+                                    <td>
+                                        <%= package.name %>
+                                    </td>
+                                    <td>
+                                        <% for(let i = 0; i < categories.length; i++){
+                                        if(categories[i]._id == package.category){ %>
+                                            <%= categories[i].name %>
+                                        <% }
+                                        } %>
+                                    </td>
+                                    <td>
+                                        <%= package.price %>
+                                    </td>
+                                    <td>
+                                        <%= package.enabled %>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item"
+                                                   href="/admin/package/view/<%= package._id %>">View</a>
+                                                <a class="dropdown-item"
+                                                   href="/admin/package/delete/<%= package._id %>">Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer py-4">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+                                <% if(parseInt(page) > 1){ %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/admin/packages/<%= (parseInt(page) - 1) %>"
+                                           tabindex="-1">
+                                            <i class="fas fa-angle-left"></i>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                <% } %>
+                                <li class="page-item active">
+                                    <a class="page-link" href="/admin/packages/<%= page %>"><%= parseInt(page) %></a>
+                                </li>
+                                <% if(packages.length > 20 * parseInt(page)){ %>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="/admin/packages/<%= (parseInt(page) + 1) %>"><%= (parseInt(page) + 1) %></a>
+                                </li>
+                                    <% if(packages.length > (20 * (parseInt(page) + 1))){ %>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="/admin/packages/<%= (parseInt(page) + 2) %>"><%= (parseInt(page) + 2) %></a>
+                                </li>
+                                    <% } %>
+                                <li class="page-item">
+                                    <% if(packages.length > (20 * (parseInt(page) + 3))){ %>
+                                        <a class="page-link" href="/admin/packages/<%= (parseInt(page) + 3) %>">
+                                        <i class="fas fa-angle-right"></i>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                                <% }
+                                } %>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <% include ../partials/footer %>
     </div>
 </div>
@@ -31,14 +153,6 @@
 <script src="/js/plugins/chart.js/dist/Chart.extension.js"></script>
 <!--   Argon JS   -->
 <script src="/js/argon-dashboard.min.js?v=1.1.0"></script>
-<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-<script>
-    window.TrackJS &&
-    TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-dashboard-free"
-    });
-</script>
 </body>
 
 </html>

@@ -39,7 +39,7 @@ let userData = {
     password: randomAdminPass,
     enabled: true
 };
-User.create(userData, function (error, user) {
+User.create(userData, function (error) {
     if (error) {
         console.log("An admin account already exists. Not creating one.");
     } else {

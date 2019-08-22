@@ -4,7 +4,7 @@ let User = require('../../models/user');
 
 router.use('/login', require('./login'));
 router.use('/payments', require('./payments'));
-router.use('/webstore', require('./webstore'));
+router.use('/', require('./webstore'));
 
 router.get('/', function (req, res, next) {
     User.findById(req.session.userId, function (err, user) {
