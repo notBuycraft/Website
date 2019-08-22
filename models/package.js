@@ -15,7 +15,14 @@ let PackageSchema = new mongoose.Schema({
     price: Number,
     description: String,
     enabled: Boolean,
-    commands: Map
+    commands: [{
+        command: String,
+        execution: {
+            type: String,
+            enum: ['initial', 'expire', 'refund', 'charge-back'],
+        },
+        player_online: Boolean
+    }]
 });
 
 // Load plugin to automatically populate nested queries

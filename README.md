@@ -1,10 +1,17 @@
 # NotBuycraft (WIP)
 (It's not finished yet lol)
-- An alternative to Buycraft/Tebex that will be self hosted.
-- Uses MongoDB as the database
-- Built using NodeJS
-- Bootstrap Based
-- Fully Customizable
+
+**Features**
+- Payment Management (50%)
+- Payment Lookup (TODO)
+- Package/Category Management & Creation (25%)
+- Coupons / Discounts / Gift cards / Sales (TODO)
+- Full Statistics / Statistic Lookup (TODO)
+- PayPal Support (TODO)
+- Other payment gateway support (TODO)
+- Expiry / Chargeback / 
+- Multiple Currency Support (TODO)
+- Language Translations (TODO eventually)
 
 **Installation**
  ```shell script
@@ -34,3 +41,6 @@ npm start
   "api_key": "vnepPgxHtq8xRK4p"
 }
 ```
+
+**Thanks**
+- Tim Creative (Argon Dashboard)
