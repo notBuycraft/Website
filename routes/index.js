@@ -3,6 +3,6 @@ let router = express.Router();
 
 router.use('/admin', require('./admin/index'));
 router.use('/api', require('./api'));
-//router.use('/', require('./store'));
+router.use('/', require('./webstore/index'));
 
 module.exports = router;

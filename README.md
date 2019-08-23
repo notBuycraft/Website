@@ -43,4 +43,5 @@ npm start
 ```
 
 **Thanks**
-- Tim Creative (Argon Dashboard)
+- Tim Creative (Argon Dashboard - https://github.com/creativetimofficial/argon-dashboard)
+- RedDuckss (Vanilla Buycraft Store Theme - https://github.com/RedDuckss/PHP-Vanilla-Buycraft)
