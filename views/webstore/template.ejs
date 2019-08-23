@@ -4,8 +4,59 @@
     <% include ../partials/head %>
 </head>
 <body>
+
+<div align="center">
+    <h2>notBuycraft</h2>
+</div>
+
+<br>
+
 <div class="container content-container site-content">
-    {% block content %}{% endblock %}
+    <div class="row center well">
+        <p>test</p>
+
+        <div class="col-md-3">
+            <div class="well">
+                <br>
+                <div align="center">
+                    <p>Logged in as: <img
+                                src="https://crafatar.com/avatars/8667ba71-b85a-4004-af54-457a9734eed7?size=16"><b>Nyarrth</b>
+                    </p>
+                    <button type="button" class="btn btn-danger">Log out</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="well">
+                <div class="center panel panel-primary">
+                    <h5>Recent Purchases</h5>
+                    <table class="table table-hover">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><img src="https://crafatar.com/avatars/8667ba71-b85a-4004-af54-457a9734eed7?size=16">
+                                Username
+                            </td>
+                            <td>Package</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well">
+                <div class="center panel panel-primary">
+                    <h5>Disclaimer</h5>
+                    <hr>
+                    <p>This store is in no-way affiliated with or endorsed by Mojang.
+                        Minecraft is © and trademark Mojang AB 2009-2016.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <% include ../partials/footer %>
