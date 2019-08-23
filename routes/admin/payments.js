@@ -13,13 +13,11 @@ router.get('/view/:id', function (req, res, next) {
     User.findById(req.session.userId, function (err, user) {
         if (user == null) return res.redirect("/admin/login");
         let id = req.params.id;
-        Payment.find({}, function (err, payments) {
             return res.render("./admin/pages/payment_view", {
                 title: "View Payment",
                 user: user,
                 transaction_id: id
             });
-        }).limit(20).skip(20 * (id - 1));
     });
 });
 
@@ -41,7 +39,7 @@ router.get('/:page', function (req, res, next) {
                 user: user,
                 page: pager
             });
-        }).limit(20).skip(20 * (pager - 1));
+        }).limit(20).skip(20 * (pager - 1)).sort({date: -1});
     });
 });
 
