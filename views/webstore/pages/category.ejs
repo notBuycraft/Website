@@ -17,6 +17,13 @@
             <% include ../partials/navbar %>
 
             <br>
+
+            <div class="col-md-9">
+                <%- category.description %>
+            </div>
+
+            <hr>
+
             <div class="options tab-content">
                 <div class="row tab-pane fade in active">
                     <% packages.forEach(function(package){ %>

@@ -92,7 +92,8 @@ router.get('/category/:id', function (req, res, next) {
                         categories: categories,
                         mcUser: req.session.mcUser,
                         uuid: req.session.uuid,
-                        payments: payments
+                        payments: payments,
+                        category: category
                     });
                 }).limit(5).sort({date: -1});
             });
