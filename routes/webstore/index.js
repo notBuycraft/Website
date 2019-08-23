@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let Category = require('../../models/category');
 let Package = require('../../models/package');
+let Payment = require('../../models/payment');
 const MinecraftAPI = require('minecraft-api');
 
 router.get('/', function (req, res, next) {
@@ -84,13 +85,16 @@ router.get('/category/:id', function (req, res, next) {
         }
         Category.find({}, function (err, categories) {
             Package.find({category: id}, function (err, packages) {
-                return res.render("./webstore/pages/category", {
-                    title: category.name,
-                    packages: packages,
-                    categories: categories,
-                    mcUser: req.session.mcUser,
-                    uuid: req.session.uuid
-                });
+                Payment.find({}, function (err, payments) {
+                    return res.render("./webstore/pages/category", {
+                        title: category.name,
+                        packages: packages,
+                        categories: categories,
+                        mcUser: req.session.mcUser,
+                        uuid: req.session.uuid,
+                        payments: payments
+                    });
+                }).limit(5).sort({date: -1});
             });
         });
     });

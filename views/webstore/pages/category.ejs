@@ -18,21 +18,23 @@
 
             <br>
             <div class="options tab-content">
-                <div class="row tab-pane fade in {{ active }}">
+                <div class="row tab-pane fade in active">
+                    <% packages.forEach(function(package){ %>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="card card-pricing card-raised">
                             <div class="card-content">
-                                <h6 class="category">{{ item.name }}</h6>
+                                <h6 class="category"><%= package.name %></h6>
                                 <div class="icon icon-rose center-block">
                                     <img class="img-responsive img-circle img-center"
                                          style="max-width:50%;max-height:50%;" src="/img/test.png">
                                 </div>
-                                <h3 class="card-title">PRICE</h3>
+                                <h3 class="card-title">$<%= package.price %></h3>
 
                                 <button class="btn sub-btn btn-rose btn-simple">Purchase</button>
                             </div>
                         </div>
                     </div>
+                    <% }); %>
                 </div>
             </div>
         </div>
