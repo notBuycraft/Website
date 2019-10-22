@@ -1,0 +1,20 @@
+<div class="col-md-3">
+    <div class="well">
+        <div class="center panel panel-primary">
+            <h5>Recent Purchases</h5>
+            <table class="table table-hover">
+                <thead>
+                </thead>
+                <tbody>
+                <% payments.forEach(function(payment){ %>
+                <tr>
+                    <td><img src="https://crafatar.com/avatars/<%= payment.uuid %>?size=16"> <%= payment.username %>
+                    </td>
+                    <td><i><%= payment.package %> - $<%= payment.paid_price %></i></td>
+                </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
